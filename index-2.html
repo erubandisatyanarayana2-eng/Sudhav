@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sudha's Mahila Lokh</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Playfair+Display:wght@700;900&family=Fredoka+One&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#fff5fb;--surface:#fff;--surface2:#fce4f5;--border:#f0b8df;
+  --pink:#e91e8c;--pink2:#f06292;--pink-light:#fce4f5;
+  --purple:#9c27b0;--gold:#f9a825;--gold2:#ffd54f;--gold-light:#fff8e1;
+  --orange:#ff6d00;--red:#e53935;--teal:#00897b;
+  --text:#3a0a2e;--text2:#8e4a7a;--text3:#c490b8;
+  --shadow:0 4px 20px rgba(233,30,140,.10);
+  --shadow2:0 8px 32px rgba(233,30,140,.22);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-height:100vh;overflow-x:hidden;}
+
+/* HEADER */
+header{position:fixed;top:0;left:0;right:0;z-index:100;background:linear-gradient(135deg,#9c27b0,#e91e8c,#ff6d00);box-shadow:0 3px 22px rgba(233,30,140,.4);display:flex;align-items:center;gap:12px;padding:10px 16px;height:64px;}
+.logo{display:flex;align-items:center;gap:10px;cursor:pointer;flex-shrink:0;}
+.logo-icon{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,#ffd54f,#ff6d00);display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 3px 14px rgba(255,109,0,.55);flex-shrink:0;}
+.logo-name{font-family:'Playfair Display',serif;font-size:18px;font-weight:900;color:#fff;line-height:1.1;text-shadow:0 1px 4px rgba(0,0,0,.2);}
+.logo-tag{font-size:9px;color:rgba(255,255,255,.8);letter-spacing:2px;text-transform:uppercase;font-weight:700;}
+.search-wrap{flex:1;max-width:500px;margin:0 auto;display:flex;}
+.search-wrap input{flex:1;border:none;outline:none;border-radius:24px 0 0 24px;padding:10px 18px;font-family:'Nunito',sans-serif;font-size:14px;background:#fff;color:var(--text);font-weight:700;}
+.search-wrap input::placeholder{color:var(--text3);font-weight:400;}
+.search-wrap button{background:var(--gold);border:none;cursor:pointer;border-radius:0 24px 24px 0;padding:10px 16px;font-size:16px;transition:background .2s;}
+.search-wrap button:hover{background:#ffb300;}
+.hdr-right{display:flex;align-items:center;gap:8px;margin-left:auto;flex-shrink:0;}
+.hbtn{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.2);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:17px;color:#fff;transition:all .2s;}
+.hbtn:hover{background:rgba(255,255,255,.35);transform:scale(1.1);}
+.user-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#ffd54f,#e91e8c);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:16px;font-weight:900;color:#fff;border:2.5px solid rgba(255,255,255,.65);cursor:pointer;}
+
+/* LAYOUT */
+.layout{display:flex;padding-top:64px;}
+.sidebar{width:235px;flex-shrink:0;position:fixed;top:64px;bottom:0;left:0;background:var(--surface);border-right:2.5px solid var(--border);overflow-y:auto;padding:14px 10px;scrollbar-width:none;}
+.sidebar::-webkit-scrollbar{display:none;}
+.sitem{display:flex;align-items:center;gap:11px;padding:10px 13px;border-radius:14px;cursor:pointer;font-size:13.5px;font-weight:700;color:var(--text2);transition:all .2s;margin:2px 0;}
+.sitem:hover{background:var(--pink-light);color:var(--pink);}
+.sitem.active{background:linear-gradient(135deg,#fce4f5,#f3e5f5);color:var(--pink);border:1.5px solid #f0a8d8;}
+.sitem .si{font-size:19px;width:24px;text-align:center;flex-shrink:0;}
+.slabel{font-size:10px;font-weight:800;color:var(--text3);text-transform:uppercase;letter-spacing:1.5px;padding:10px 13px 4px;}
+.sdiv{height:2px;background:linear-gradient(90deg,var(--border),transparent);margin:8px 12px;border-radius:2px;}
+.sbadge{margin-left:auto;background:var(--red);color:#fff;font-size:10px;font-weight:800;padding:2px 7px;border-radius:10px;}
+.contact-box{background:linear-gradient(135deg,#fce4f5,#f3e5f5);border:2px solid var(--border);border-radius:14px;padding:12px;margin:8px 4px;font-size:12px;font-weight:700;color:var(--text2);line-height:2.1;}
+.contact-box a{color:var(--pink);text-decoration:none;}
+.contact-box a:hover{text-decoration:underline;}
+
+/* MAIN */
+.main{margin-left:235px;flex:1;padding:18px;padding-bottom:78px;}
+
+/* HERO */
+.hero-banner{background:linear-gradient(135deg,#9c27b0,#e91e8c,#ff6d00);border-radius:22px;margin-bottom:22px;padding:28px 32px;box-shadow:var(--shadow2);position:relative;overflow:hidden;}
+.hero-banner::after{content:'💍';position:absolute;right:28px;top:50%;transform:translateY(-50%);font-size:80px;opacity:.15;pointer-events:none;}
+.hero-text h2{font-family:'Playfair Display',serif;font-size:24px;font-weight:900;color:#fff;margin-bottom:6px;text-shadow:0 2px 8px rgba(0,0,0,.15);}
+.hero-text p{font-size:13px;color:rgba(255,255,255,.93);font-weight:700;line-height:1.6;}
+.hero-contact{margin-top:10px;font-size:12px;font-weight:700;color:rgba(255,255,255,.95);line-height:2;}
+.hc-tag{display:inline-block;background:rgba(255,255,255,.18);border-radius:8px;padding:2px 10px;margin:2px 4px 2px 0;}
+.hero-btn{background:#fff;color:var(--pink);padding:9px 22px;border-radius:22px;font-size:13px;font-weight:800;cursor:pointer;border:none;margin-top:13px;font-family:'Nunito',sans-serif;box-shadow:0 3px 14px rgba(0,0,0,.18);transition:transform .2s,box-shadow .2s;display:inline-block;}
+.hero-btn:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(0,0,0,.22);}
+
+/* STATS */
+.stats-row{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap;}
+.stat-card{flex:1;min-width:120px;background:var(--surface);border-radius:18px;padding:14px 16px;border:2px solid var(--border);box-shadow:var(--shadow);display:flex;align-items:center;gap:12px;}
+.stat-icon{width:44px;height:44px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.stat-num{font-family:'Fredoka One',sans-serif;font-size:21px;color:var(--text);line-height:1;}
+.stat-lbl{font-size:11px;color:var(--text2);font-weight:700;margin-top:2px;}
+
+/* CHIPS */
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:14px;scrollbar-width:none;}
+.chips::-webkit-scrollbar{display:none;}
+.chip{white-space:nowrap;padding:8px 18px;border-radius:22px;font-size:13px;font-weight:700;cursor:pointer;flex-shrink:0;background:var(--surface);border:2px solid var(--border);color:var(--text2);transition:all .2s;box-shadow:0 2px 8px rgba(233,30,140,.08);}
+.chip:hover{border-color:var(--pink);color:var(--pink);background:var(--pink-light);}
+.chip.active{background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;border-color:var(--pink);box-shadow:0 4px 14px rgba(233,30,140,.35);}
+
+/* SECTION TITLE */
+.sec-title{font-family:'Playfair Display',serif;font-size:21px;font-weight:900;color:var(--pink);margin:20px 0 12px;display:flex;align-items:center;gap:10px;}
+.sec-title .tag{font-size:11px;background:var(--orange);color:#fff;padding:3px 10px;border-radius:10px;font-family:'Nunito',sans-serif;font-weight:800;margin-top:2px;}
+
+/* VIDEO GRID */
+.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:16px;}
+.vcard{background:var(--surface);border-radius:20px;overflow:hidden;border:2px solid var(--border);transition:all .22s;box-shadow:var(--shadow);animation:fadeUp .4s ease both;position:relative;}
+.vcard:hover{transform:translateY(-4px);box-shadow:var(--shadow2);border-color:var(--pink2);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+.vthumb{position:relative;aspect-ratio:16/9;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:52px;cursor:pointer;}
+.vthumb-bg{position:absolute;inset:0;}
+.vthumb-icon{position:relative;z-index:1;filter:drop-shadow(0 4px 10px rgba(0,0,0,.18));}
+.vthumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;}
+.vthumb video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;}
+.vdur{position:absolute;bottom:8px;right:8px;background:rgba(0,0,0,.72);color:#fff;font-size:11px;font-weight:700;padding:3px 8px;border-radius:7px;z-index:3;}
+.vlive{position:absolute;top:8px;left:8px;background:var(--red);color:#fff;font-size:10px;font-weight:800;padding:3px 9px;border-radius:7px;z-index:3;}
+.vnew{position:absolute;top:8px;left:8px;background:var(--pink);color:#fff;font-size:10px;font-weight:800;padding:3px 9px;border-radius:7px;z-index:3;}
+
+/* CARD ACTION BUTTONS — save & delete */
+.card-actions{position:absolute;top:8px;right:8px;display:flex;gap:5px;z-index:10;opacity:0;transition:opacity .2s;}
+.vcard:hover .card-actions{opacity:1;}
+.cact-btn{width:30px;height:30px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;transition:transform .18s,box-shadow .18s;box-shadow:0 2px 8px rgba(0,0,0,.18);}
+.cact-save{background:#fff;color:var(--pink);}
+.cact-save:hover{transform:scale(1.15);background:var(--pink);color:#fff;}
+.cact-save.saved{background:var(--pink);color:#fff;}
+.cact-del{background:#fff;color:var(--red);}
+.cact-del:hover{transform:scale(1.15);background:var(--red);color:#fff;}
+
+.vinfo{padding:12px 14px 14px;cursor:pointer;}
+.vtitle{font-size:14px;font-weight:800;color:var(--text);line-height:1.4;margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.vmeta{display:flex;align-items:center;gap:8px;}
+.vavatar{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#fff;flex-shrink:0;}
+.vch-name{font-size:12px;font-weight:700;color:var(--text2);}
+.vstats{display:flex;gap:6px;margin-top:4px;flex-wrap:wrap;align-items:center;}
+.vtag{font-size:10px;background:var(--pink-light);color:var(--pink);padding:2px 8px;border-radius:8px;font-weight:800;}
+
+/* SHORTS */
+.srow{display:flex;gap:12px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none;}
+.srow::-webkit-scrollbar{display:none;}
+.scard{flex-shrink:0;width:130px;cursor:pointer;border-radius:18px;overflow:hidden;border:2px solid var(--border);background:var(--surface);transition:all .2s;box-shadow:0 3px 12px rgba(233,30,140,.1);}
+.scard:hover{transform:scale(1.05);box-shadow:0 8px 26px rgba(233,30,140,.22);border-color:var(--pink);}
+.sthumb{aspect-ratio:9/16;display:flex;align-items:center;justify-content:center;font-size:34px;position:relative;}
+.splay{position:absolute;bottom:8px;right:8px;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;font-size:11px;box-shadow:0 2px 8px rgba(0,0,0,.15);}
+.stitle{padding:8px 9px;font-size:11px;font-weight:800;color:var(--text);line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+
+/* BOTTOM NAV */
+.bnav{display:none;position:fixed;bottom:0;left:0;right:0;z-index:100;background:var(--surface);border-top:2.5px solid var(--border);padding:6px 0 8px;grid-template-columns:repeat(5,1fr);box-shadow:0 -4px 22px rgba(233,30,140,.12);}
+.bni{display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;font-size:10px;font-weight:700;color:var(--text3);transition:color .2s;padding:4px;}
+.bni.active{color:var(--pink);}
+.bni .bicon{font-size:22px;}
+.bni-up{width:48px;height:48px;border-radius:16px;margin-top:-20px;background:linear-gradient(135deg,var(--purple),var(--pink),var(--orange));display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 4px 18px rgba(233,30,140,.5);border:3px solid var(--bg);}
+
+/* OVERLAY / MODAL */
+.overlay{display:none;position:fixed;inset:0;z-index:200;background:rgba(58,10,46,.65);backdrop-filter:blur(7px);align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto;}
+.overlay.open{display:flex;}
+.modal{background:var(--surface);border-radius:26px;width:100%;max-width:500px;padding:28px;animation:popIn .3s cubic-bezier(.34,1.56,.64,1);border:2.5px solid var(--border);box-shadow:0 24px 64px rgba(233,30,140,.22);margin:auto;max-height:90vh;overflow-y:auto;}
+@keyframes popIn{from{transform:scale(.88);opacity:0}to{transform:scale(1);opacity:1}}
+.modal-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;}
+.modal-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:var(--pink);display:flex;align-items:center;gap:8px;}
+.modal-x{width:32px;height:32px;border-radius:50%;background:var(--pink-light);border:none;cursor:pointer;font-size:16px;color:var(--pink);font-weight:800;display:flex;align-items:center;justify-content:center;}
+
+/* FILE ZONE */
+.file-zone{border:3px dashed var(--border);border-radius:18px;padding:22px;text-align:center;margin-bottom:14px;background:var(--bg);cursor:pointer;transition:all .2s;position:relative;overflow:hidden;}
+.file-zone:hover{border-color:var(--pink);background:var(--pink-light);}
+.file-zone input[type="file"]{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;z-index:5;}
+.uz-icon{font-size:42px;margin-bottom:6px;pointer-events:none;}
+.uz-text{font-size:14px;font-weight:700;color:var(--text2);pointer-events:none;}
+.uz-text strong{color:var(--pink);}
+.uz-hint{font-size:11px;color:var(--text3);margin-top:4px;pointer-events:none;}
+.fname{font-size:12px;font-weight:800;color:var(--teal);margin-top:6px;word-break:break-all;pointer-events:none;}
+
+/* FORM FIELDS */
+.flabel{font-size:12px;font-weight:800;color:var(--text2);margin-bottom:4px;display:block;}
+.mfield{width:100%;background:var(--bg);border:2px solid var(--border);border-radius:13px;color:var(--text);font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;padding:11px 14px;margin-bottom:12px;outline:none;transition:border-color .2s;display:block;}
+.mfield:focus{border-color:var(--pink);}
+textarea.mfield{height:76px;resize:none;}
+
+/* PROGRESS */
+.up-prog{display:none;margin-bottom:14px;}
+.up-prog.show{display:block;}
+.prog-bar{background:var(--border);border-radius:10px;height:10px;overflow:hidden;margin-top:6px;}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--purple),var(--pink));border-radius:10px;width:0%;transition:width .18s;}
+.prog-lbl{font-size:12px;font-weight:700;color:var(--text2);}
+
+.modal-btns{display:flex;gap:10px;justify-content:flex-end;margin-top:4px;}
+.btn{padding:11px 24px;border-radius:13px;font-size:14px;font-weight:800;cursor:pointer;border:none;font-family:'Nunito',sans-serif;transition:all .2s;}
+.btn-out{background:transparent;border:2px solid var(--border);color:var(--text2);}
+.btn-out:hover{border-color:var(--pink2);color:var(--pink);}
+.btn-pink{background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;box-shadow:0 4px 16px rgba(233,30,140,.4);}
+.btn-pink:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(233,30,140,.5);}
+.btn-pink:disabled{opacity:.6;cursor:not-allowed;transform:none;box-shadow:none;}
+
+/* PLAYER MODAL */
+.player-overlay{display:none;position:fixed;inset:0;z-index:300;background:rgba(0,0,0,.92);align-items:center;justify-content:center;padding:16px;}
+.player-overlay.open{display:flex;}
+.player-box{background:var(--surface);border-radius:24px;overflow:hidden;width:100%;max-width:720px;animation:popIn .3s cubic-bezier(.34,1.56,.64,1);border:2.5px solid var(--border);}
+.player-screen{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;font-size:66px;position:relative;overflow:hidden;background:#111;}
+.player-screen video{width:100%;height:100%;object-fit:contain;display:block;}
+.player-screen img{width:100%;height:100%;object-fit:cover;display:block;}
+.player-screen .p-emoji{font-size:66px;}
+.pplay-btn{position:absolute;width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,.22);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;font-size:30px;border:3px solid rgba(255,255,255,.55);transition:all .2s;cursor:pointer;z-index:5;}
+.pplay-btn:hover{background:rgba(255,255,255,.38);transform:scale(1.1);}
+.pplay-btn.hidden{opacity:0;pointer-events:none;}
+.pclose-btn{position:absolute;top:10px;right:10px;width:34px;height:34px;border-radius:50%;background:rgba(0,0,0,.65);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;color:#fff;border:none;z-index:10;}
+.pclose-btn:hover{background:var(--red);}
+.pinfo{padding:16px 20px 20px;}
+.ptitle{font-family:'Playfair Display',serif;font-size:18px;font-weight:900;color:var(--text);margin-bottom:8px;line-height:1.3;}
+.pmeta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:14px;}
+.pmeta span{font-size:12px;color:var(--text2);font-weight:700;}
+.pch-link{color:var(--pink);cursor:pointer;}
+.pactions{display:flex;gap:8px;flex-wrap:wrap;}
+.pill{display:flex;align-items:center;gap:6px;background:var(--surface2);border:2px solid var(--border);border-radius:22px;padding:8px 14px;cursor:pointer;font-size:13px;font-weight:700;color:var(--text);transition:all .2s;font-family:'Nunito',sans-serif;}
+.pill:hover{background:var(--pink);color:#fff;border-color:var(--pink);}
+.pill.liked{background:var(--pink-light);color:var(--pink);border-color:var(--pink);}
+.pill.saved-p{background:var(--gold-light);color:#b8860b;border-color:var(--gold2);}
+.pill.del-p{background:#ffeaea;color:var(--red);border-color:#ffb3b3;}
+.pill.del-p:hover{background:var(--red);color:#fff;border-color:var(--red);}
+
+/* SEARCH */
+#searchPage{display:none;}
+.srlbl{font-size:14px;color:var(--text2);font-weight:700;margin-bottom:14px;background:var(--gold-light);padding:10px 16px;border-radius:13px;border:2px solid var(--gold2);}
+.srcard{display:flex;gap:14px;margin-bottom:14px;cursor:pointer;padding:12px;border-radius:18px;transition:all .2s;background:var(--surface);border:2px solid var(--border);box-shadow:var(--shadow);}
+.srcard:hover{border-color:var(--pink);background:var(--pink-light);}
+.srthumb{width:155px;flex-shrink:0;aspect-ratio:16/9;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:30px;}
+.srthumb img,.srthumb video{width:100%;height:100%;object-fit:cover;}
+.srinfo{flex:1;}
+.srtitle{font-size:15px;font-weight:800;margin-bottom:6px;color:var(--text);}
+.srmeta{font-size:12px;color:var(--text2);font-weight:600;line-height:1.9;}
+.srcat{display:inline-block;background:var(--pink-light);color:var(--pink);padding:2px 10px;border-radius:8px;font-size:11px;font-weight:800;margin-top:4px;}
+
+/* PROFILE */
+#profilePage{display:none;}
+.profile-cover{background:linear-gradient(135deg,#9c27b0,#e91e8c,#ff6d00);border-radius:22px;padding:28px;margin-bottom:20px;display:flex;align-items:center;gap:22px;box-shadow:var(--shadow2);flex-wrap:wrap;}
+.pavatar{width:88px;height:88px;border-radius:50%;background:linear-gradient(135deg,#ffd54f,#e91e8c);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:#fff;border:4px solid rgba(255,255,255,.55);flex-shrink:0;}
+.pname{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:#fff;}
+.phandle{font-size:13px;color:rgba(255,255,255,.82);font-weight:700;margin:2px 0 6px;}
+.pbio{font-size:12.5px;color:rgba(255,255,255,.92);font-weight:600;line-height:1.8;}
+.pstats-row{display:flex;gap:18px;margin-top:12px;flex-wrap:wrap;}
+.pstat{text-align:center;}
+.pstat-n{font-family:'Fredoka One',sans-serif;font-size:20px;color:#fff;}
+.pstat-l{font-size:11px;color:rgba(255,255,255,.75);font-weight:700;}
+.sub-btn{background:#fff;color:var(--pink);padding:9px 20px;border-radius:22px;font-size:13px;font-weight:800;cursor:pointer;border:none;font-family:'Nunito',sans-serif;margin-top:14px;box-shadow:0 3px 12px rgba(0,0,0,.18);transition:all .2s;}
+.sub-btn:hover{transform:scale(1.05);}
+.tabs{display:flex;border-bottom:2.5px solid var(--border);margin-bottom:18px;overflow-x:auto;scrollbar-width:none;}
+.tabs::-webkit-scrollbar{display:none;}
+.tab{padding:10px 20px;cursor:pointer;font-size:13.5px;font-weight:800;color:var(--text3);border-bottom:3px solid transparent;margin-bottom:-2.5px;transition:all .2s;white-space:nowrap;flex-shrink:0;}
+.tab.active{color:var(--pink);border-bottom-color:var(--pink);}
+
+/* SUBSCRIPTIONS */
+#subscriptionsPage{display:none;}
+.sub-channels{display:flex;gap:12px;overflow-x:auto;padding-bottom:12px;margin-bottom:20px;scrollbar-width:none;}
+.sub-channels::-webkit-scrollbar{display:none;}
+.sch-card{flex-shrink:0;width:105px;text-align:center;cursor:pointer;padding:14px 8px;border-radius:18px;background:var(--surface);border:2px solid var(--border);transition:all .2s;box-shadow:var(--shadow);}
+.sch-card:hover{border-color:var(--pink);background:var(--pink-light);transform:translateY(-3px);}
+.sch-av{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 8px;}
+.sch-name{font-size:11px;font-weight:800;color:var(--text);line-height:1.3;}
+.sch-count{font-size:10px;color:var(--text3);font-weight:600;margin-top:2px;}
+
+/* TOAST */
+.toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;padding:12px 26px;border-radius:22px;font-size:13px;font-weight:800;z-index:9999;opacity:0;transition:opacity .3s;pointer-events:none;box-shadow:0 4px 20px rgba(233,30,140,.5);white-space:nowrap;}
+.toast.show{opacity:1;}
+
+/* CONFIRM DELETE */
+.confirm-box{position:fixed;bottom:120px;left:50%;transform:translateX(-50%);background:#fff;border:2px solid var(--red);border-radius:16px;padding:16px 22px;z-index:9999;display:none;box-shadow:0 8px 32px rgba(0,0,0,.2);text-align:center;min-width:260px;}
+.confirm-box.show{display:block;}
+.confirm-box p{font-size:14px;font-weight:700;color:var(--text);margin-bottom:12px;}
+.confirm-btns{display:flex;gap:10px;justify-content:center;}
+.cbtn{padding:8px 20px;border-radius:10px;font-size:13px;font-weight:800;cursor:pointer;border:none;font-family:'Nunito',sans-serif;}
+.cbtn-no{background:var(--bg);color:var(--text2);border:2px solid var(--border);}
+.cbtn-yes{background:var(--red);color:#fff;}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .sidebar{display:none;}
+  .main{margin-left:0;padding:12px;}
+  .bnav{display:grid;}
+  .vgrid{grid-template-columns:1fr;}
+  .hdr-right .hbtn:not(.notif){display:none;}
+  .hero-banner{padding:20px 18px;}
+  .hero-text h2{font-size:18px;}
+  .card-actions{opacity:1;}
+}
+@media(max-width:480px){
+  .srthumb{width:100px;font-size:20px;}
+  .profile-cover{flex-direction:column;text-align:center;}
+  .pstats-row{justify-content:center;}
+  .logo-name{font-size:14px;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo" id="logoBtn">
+    <div class="logo-icon">💍</div>
+    <div><div class="logo-name">Sudha's Mahila Lokh</div><div class="logo-tag">Ladies Fashion &amp; Beauty</div></div>
+  </div>
+  <div class="search-wrap">
+    <input type="text" id="searchInput" placeholder="Search jewellery, bangles, cosmetics…"/>
+    <button id="searchBtn">🔍</button>
+  </div>
+  <div class="hdr-right">
+    <button class="hbtn notif" id="notifBtn">🔔</button>
+    <button class="hbtn" id="uploadHeaderBtn">📤</button>
+    <div class="user-avatar" id="profileBtn">S</div>
+  </div>
+</header>
+
+<div class="layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sitem active" id="sb-home"><span class="si">🏠</span>Home</div>
+    <div class="sitem" id="sb-shorts"><span class="si">⚡</span>Shorts<span class="sbadge">NEW</span></div>
+    <div class="sitem" id="sb-subs"><span class="si">📺</span>Subscriptions<span class="sbadge">4</span></div>
+    <div class="sdiv"></div>
+    <div class="slabel">Your Space</div>
+    <div class="sitem" id="sb-profile"><span class="si">👤</span>Your Channel</div>
+    <div class="sitem" id="sb-history"><span class="si">🕐</span>History</div>
+    <div class="sitem" id="sb-liked"><span class="si">❤️</span>Liked Videos</div>
+    <div class="sdiv"></div>
+    <div class="slabel">Browse Categories</div>
+    <div class="sitem sb-cat" data-cat="Jewellery"><span class="si">💍</span>Jewellery</div>
+    <div class="sitem sb-cat" data-cat="Bangles"><span class="si">🔮</span>Bangles</div>
+    <div class="sitem sb-cat" data-cat="Cosmetics"><span class="si">💄</span>Cosmetics</div>
+    <div class="sitem sb-cat" data-cat="One Gram Gold"><span class="si">🪙</span>One Gram Gold</div>
+    <div class="sitem sb-cat" data-cat="Chains"><span class="si">⛓️</span>Chains</div>
+    <div class="sitem sb-cat" data-cat="Hair Clips"><span class="si">🎀</span>Hair Clips</div>
+    <div class="sitem sb-cat" data-cat="Hair Colours"><span class="si">🎨</span>Hair Colours</div>
+    <div class="sitem sb-cat" data-cat="Make-up Box"><span class="si">🧴</span>Make-up Box</div>
+    <div class="sitem sb-cat" data-cat="Bridal"><span class="si">👰</span>Bridal</div>
+    <div class="sdiv"></div>
+    <div class="slabel">Contact Us</div>
+    <div class="contact-box">
+      📍 Shop No.11, NTR Complex,<br>Lakshmipuram,<br>Guntur – 522007, AP<br>
+      📞 <a href="tel:08632222855">0863-2222855</a><br>
+      💬 <a href="https://wa.me/919441412413" target="_blank">WhatsApp: 9441412413</a>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- HOME -->
+    <div id="homePage">
+      <div class="hero-banner">
+        <div class="hero-text">
+          <h2>Sudha's Mahila Lokh ✨</h2>
+          <p>Latest Jewellery, Bangles, Cosmetics, One Gram Gold, Hair Colours &amp; More!</p>
+          <div class="hero-contact">
+            <span class="hc-tag">📞 0863-2222855</span>
+            <span class="hc-tag">💬 WhatsApp: 9441412413</span>
+            <span class="hc-tag">📍 Shop No.11, NTR Complex, Lakshmipuram, Guntur – 522007, AP</span>
+          </div>
+          <button class="hero-btn" id="heroShopBtn">Shop Now →</button>
+        </div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-card"><div class="stat-icon" style="background:#fce4f5">💍</div><div><div class="stat-num">500+</div><div class="stat-lbl">Jewellery</div></div></div>
+        <div class="stat-card"><div class="stat-icon" style="background:#f3e5f5">💄</div><div><div class="stat-num">300+</div><div class="stat-lbl">Cosmetics</div></div></div>
+        <div class="stat-card"><div class="stat-icon" style="background:#fff8e1">🪙</div><div><div class="stat-num">200+</div><div class="stat-lbl">Gold Designs</div></div></div>
+        <div class="stat-card"><div class="stat-icon" style="background:#fce4ec">👰</div><div><div class="stat-num">150+</div><div class="stat-lbl">Bridal Sets</div></div></div>
+      </div>
+
+      <div class="chips" id="chipsRow">
+        <div class="chip active" data-cat="All">✨ All</div>
+        <div class="chip" data-cat="Jewellery">💍 Jewellery</div>
+        <div class="chip" data-cat="Bangles">🔮 Bangles</div>
+        <div class="chip" data-cat="Cosmetics">💄 Cosmetics</div>
+        <div class="chip" data-cat="One Gram Gold">🪙 One Gram Gold</div>
+        <div class="chip" data-cat="Chains">⛓️ Chains</div>
+        <div class="chip" data-cat="Hair Clips">🎀 Hair Clips</div>
+        <div class="chip" data-cat="Hair Colours">🎨 Hair Colours</div>
+        <div class="chip" data-cat="Make-up Box">🧴 Make-up Box</div>
+        <div class="chip" data-cat="Bridal">👰 Bridal</div>
+      </div>
+
+      <div class="sec-title">⚡ Latest Shorts <span class="tag">TRENDING</span></div>
+      <div class="srow" id="shortsRow"></div>
+      <div class="sec-title">🔥 Trending Now</div>
+      <div class="vgrid" id="trendingGrid"></div>
+      <div class="sec-title" id="recTitle">💖 Recommended for You</div>
+      <div class="vgrid" id="videoGrid"></div>
+    </div>
+
+    <!-- SHORTS -->
+    <div id="shortsPage" style="display:none">
+      <div class="sec-title">⚡ Fashion &amp; Beauty Shorts</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(138px,1fr));gap:14px" id="shortsGrid"></div>
+    </div>
+
+    <!-- SUBSCRIPTIONS -->
+    <div id="subscriptionsPage" style="display:none">
+      <div class="sec-title">📺 Your Subscriptions</div>
+      <div class="sub-channels" id="subChannels"></div>
+      <div class="sec-title">💍 Latest from Subscriptions</div>
+      <div class="vgrid" id="subGrid"></div>
+    </div>
+
+    <!-- SEARCH -->
+    <div id="searchPage" style="display:none">
+      <div id="searchLabel" class="srlbl"></div>
+      <div id="searchResults"></div>
+    </div>
+
+    <!-- PROFILE -->
+    <div id="profilePage" style="display:none">
+      <div class="profile-cover">
+        <div class="pavatar">S</div>
+        <div>
+          <div class="pname">Sudha's Mahila Lokh 💍</div>
+          <div class="phandle">@sudhas_mahila_lokh</div>
+          <div class="pbio">
+            💍 Jewellery • 🔮 Bangles • 🪙 One Gram Gold • ⛓️ Chains<br>
+            💄 Cosmetics • 🧴 Make-up Box • 🎀 Hair Clips • 🎨 Hair Colours • 👰 Bridal<br>
+            📍 Shop No.11, NTR Complex, Lakshmipuram, Guntur – 522007, AP<br>
+            📞 0863-2222855 &nbsp;|&nbsp; 💬 WhatsApp: 9441412413
+          </div>
+          <div class="pstats-row">
+            <div class="pstat"><div class="pstat-n" id="pVidCount">12</div><div class="pstat-l">Videos</div></div>
+            <div class="pstat"><div class="pstat-n">8.6K</div><div class="pstat-l">Subscribers</div></div>
+            <div class="pstat"><div class="pstat-n">2.4L</div><div class="pstat-l">Views</div></div>
+            <div class="pstat"><div class="pstat-n">4.9⭐</div><div class="pstat-l">Rating</div></div>
+          </div>
+          <button class="sub-btn" id="subBtn">+ Subscribe</button>
+        </div>
+      </div>
+      <div class="tabs">
+        <div class="tab active" data-tab="Videos">📹 Videos</div>
+        <div class="tab" data-tab="Shorts">⚡ Shorts</div>
+        <div class="tab" data-tab="About">ℹ️ About</div>
+        <div class="tab" data-tab="Playlists">📋 Playlists</div>
+      </div>
+      <div class="vgrid" id="profileGrid"></div>
+    </div>
+
+  </main>
+</div>
+
+<!-- BOTTOM NAV -->
+<nav class="bnav" style="grid-template-columns:repeat(3,1fr);">
+  <div class="bni active" id="bn-home"><div class="bicon">🏠</div><span>Home</span></div>
+  <div class="bni" id="bn-upload"><div class="bni-up">➕</div><span></span></div>
+  <div class="bni" id="bn-profile"><div class="bicon">👤</div><span>You</span></div>
+</nav>
+
+<!-- UPLOAD MODAL -->
+<div class="overlay" id="uploadOverlay">
+  <div class="modal">
+    <div class="modal-hdr">
+      <div class="modal-title">🎬 Upload Video / Image</div>
+      <button class="modal-x" id="upCloseX">✕</button>
+    </div>
+    <label class="flabel">Video / Item Title *</label>
+    <input type="text" class="mfield" id="upTitle" placeholder="e.g. New Bridal Jewellery Collection 2024"/>
+    <label class="flabel">🎬 YouTube Video Link (Optional)</label>
+    <div style="position:relative;margin-bottom:6px;">
+      <input type="url" class="mfield" id="upYtLink" placeholder="https://www.youtube.com/watch?v=xxxxxxxxx" style="margin-bottom:0;padding-right:90px;"/>
+      <div style="position:absolute;right:6px;top:50%;transform:translateY(-50%);display:flex;gap:5px;align-items:center;">
+        <span id="ytValidIcon" style="font-size:18px;display:none;"></span>
+        <button id="ytPasteBtn" title="Clipboard నుండి Paste చేయండి" style="background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;border:none;border-radius:9px;padding:5px 10px;font-size:11px;font-weight:800;cursor:pointer;white-space:nowrap;font-family:'Nunito',sans-serif;">📋 Paste</button>
+      </div>
+    </div>
+    <div id="ytFetchStatus" style="font-size:11px;font-weight:700;margin-bottom:8px;display:none;"></div>
+    <!-- YouTube Thumbnail Preview -->
+    <div id="ytPreviewBox" style="display:none;border-radius:16px;overflow:hidden;border:2.5px solid var(--border);margin-bottom:14px;background:#000;position:relative;">
+      <img id="ytThumbImg" src="" alt="YouTube Thumbnail" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;"/>
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+        <div style="width:50px;height:50px;border-radius:50%;background:rgba(255,0,0,.88);display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;box-shadow:0 3px 14px rgba(0,0,0,.4);">▶</div>
+      </div>
+      <div id="ytFetchedTitle" style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.85));color:#fff;font-size:12px;font-weight:700;padding:18px 12px 10px;line-height:1.4;"></div>
+    </div>
+    <div style="font-size:11px;color:var(--text3);font-weight:700;margin-bottom:12px;">📌 YouTube link పెట్టినా, file upload చేసినా పని చేస్తుంది!</div>
+    <div class="file-zone" id="fileZone">
+      <input type="file" id="videoFile" accept="video/*,image/*"/>
+      <div class="uz-icon">💍</div>
+      <div class="uz-text">లేదా <strong>File Browse చేయండి</strong></div>
+      <div class="uz-hint">MP4, MOV, AVI, JPG, PNG, WEBP • Up to 2GB</div>
+      <div class="fname" id="fnameDisplay"></div>
+    </div>
+    <label class="flabel">Description</label>
+    <textarea class="mfield" id="upDesc" placeholder="Describe – collection name, price, design details…"></textarea>
+    <label class="flabel">Category *</label>
+    <select class="mfield" id="upCat">
+      <option value="">-- Select Category --</option>
+      <option value="Jewellery">💍 Jewellery</option>
+      <option value="Bangles">🔮 Bangles</option>
+      <option value="Cosmetics">💄 Cosmetics</option>
+      <option value="One Gram Gold">🪙 One Gram Gold</option>
+      <option value="Chains">⛓️ Chains</option>
+      <option value="Hair Clips">🎀 Hair Clips</option>
+      <option value="Hair Colours">🎨 Hair Colours</option>
+      <option value="Make-up Box">🧴 Make-up Box</option>
+      <option value="Bridal">👰 Bridal</option>
+      <option value="Nail Art">💅 Nail Art</option>
+      <option value="New Arrivals">🛍️ New Arrivals</option>
+    </select>
+    <label class="flabel">Visibility</label>
+    <select class="mfield" id="upVis">
+      <option>🌍 Public</option><option>🔗 Unlisted</option><option>🔒 Private</option>
+    </select>
+    <div class="up-prog" id="upProg">
+      <div class="prog-lbl" id="progLbl">Uploading… 0%</div>
+      <div class="prog-bar"><div class="prog-fill" id="progFill"></div></div>
+    </div>
+    <div class="modal-btns">
+      <button class="btn btn-out" id="upCancelBtn">Cancel</button>
+      <button class="btn btn-pink" id="upSubmitBtn">📤 Publish</button>
+    </div>
+  </div>
+</div>
+
+<!-- PLAYER MODAL -->
+<div class="player-overlay" id="playerOverlay">
+  <div class="player-box">
+    <div class="player-screen" id="playerScreen">
+      <div class="pplay-btn" id="pPlayBtn">▶</div>
+      <button class="pclose-btn" id="playerCloseBtn">✕</button>
+    </div>
+    <div class="pinfo">
+      <div class="ptitle" id="pTitle"></div>
+      <div class="pmeta">
+        <span id="pViews"></span><span id="pDate"></span>
+        <span class="pch-link" id="pCh"></span><span id="pCat"></span>
+      </div>
+      <div class="pactions">
+        <div class="pill" id="likeBtn">❤️ <span id="likeNum">0</span></div>
+        <div class="pill" id="pSaveBtn">🔖 Save</div>
+        <div class="pill" id="pDelBtn">🗑️ Delete</div>
+        <div class="pill" id="shareBtn">🔗 Share</div>
+        <div class="pill" id="waBtn">📲 WhatsApp</div>
+        <div class="pill" id="dlBtn">⬇️ Download</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONFIRM DELETE BOX -->
+<div class="confirm-box" id="confirmBox">
+  <p id="confirmMsg">Delete this video?</p>
+  <div class="confirm-btns">
+    <button class="cbtn cbtn-no" id="confirmNo">Cancel</button>
+    <button class="cbtn cbtn-yes" id="confirmYes">🗑️ Delete</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+/* ===================== CONSTANTS ===================== */
+var STORAGE_KEY='sml_videos_v6';
+var PAL=[
+  {bg:'linear-gradient(135deg,#9c27b0,#e91e8c)'},
+  {bg:'linear-gradient(135deg,#f9a825,#ff6d00)'},
+  {bg:'linear-gradient(135deg,#e91e8c,#ff6d00)'},
+  {bg:'linear-gradient(135deg,#00897b,#26c6da)'},
+  {bg:'linear-gradient(135deg,#3f51b5,#9c27b0)'},
+  {bg:'linear-gradient(135deg,#c62828,#e91e8c)'},
+  {bg:'linear-gradient(135deg,#558b2f,#f9a825)'},
+];
+var AVC=['#e91e8c','#9c27b0','#f9a825','#ff6d00','#00897b','#3f51b5','#c62828'];
+var CAT_ICONS={Jewellery:'💍',Bangles:'🔮',Cosmetics:'💄','One Gram Gold':'🪙',
+  Chains:'⛓️','Hair Clips':'🎀','Hair Colours':'🎨','Make-up Box':'🧴',
+  Bridal:'👰','Nail Art':'💅','New Arrivals':'🛍️'};
+
+/* ===================== DEFAULT VIDEOS ===================== */
+var DEFAULT_VIDEOS=[
+  {id:1,title:"New Bridal Jewellery Set – Gold & Diamond 2024",ch:"Jewellery World",cat:"Jewellery",views:"3.2M",date:"2 days ago",dur:"18:24",icon:"💍",likes:14200,p:0,saved:false,uploaded:false},
+  {id:2,title:"Latest Glass Bangles Collection – All Colours",ch:"Glam Studio",cat:"Bangles",views:"1.8M",date:"1 week ago",dur:"14:10",icon:"🔮",likes:7800,p:1,saved:false,uploaded:false},
+  {id:3,title:"Best Daily Makeup Cosmetics – Full Tutorial Telugu",ch:"Beauty Queen",cat:"Cosmetics",views:"2.4M",date:"3 days ago",dur:"22:05",icon:"💄",likes:9600,p:2,isNew:true,saved:false,uploaded:false},
+  {id:4,title:"One Gram Gold Earrings – Temple Jewellery New Arrivals",ch:"Gold Palace",cat:"One Gram Gold",views:"980K",date:"4 days ago",dur:"12:45",icon:"🪙",likes:4100,p:3,saved:false,uploaded:false},
+  {id:5,title:"Fancy Gold Chains – Long & Short Designs 2024",ch:"Jewellery World",cat:"Chains",views:"1.3M",date:"1 week ago",dur:"16:00",icon:"⛓️",likes:5600,p:4,saved:false,uploaded:false},
+  {id:6,title:"Cute Hair Clips & Pins – Kids & Ladies New Collection",ch:"Glam Studio",cat:"Hair Clips",views:"760K",date:"2 weeks ago",dur:"10:15",icon:"🎀",likes:3200,p:5,saved:false,uploaded:false},
+  {id:7,title:"Hair Colours at Home – Best Shades for Indian Skin",ch:"Beauty Queen",cat:"Hair Colours",views:"1.6M",date:"3 days ago",dur:"20:30",icon:"🎨",likes:6800,p:6,isNew:true,saved:false,uploaded:false},
+  {id:8,title:"Professional Make-up Box Setup – Everything Inside",ch:"Beauty Queen",cat:"Make-up Box",views:"2.1M",date:"3 weeks ago",dur:"25:40",icon:"🧴",likes:8900,p:0,saved:false,uploaded:false},
+  {id:9,title:"Bridal Full Makeup & Jewellery – Step by Step",ch:"Gold Palace",cat:"Bridal",views:"4.2M",date:"Today",dur:"35:10",icon:"👰",likes:19200,p:1,live:true,saved:false,uploaded:false},
+  {id:10,title:"Antique Silver Jewellery – Oxidised Necklace Set",ch:"Gold Palace",cat:"Jewellery",views:"870K",date:"2 weeks ago",dur:"19:20",icon:"💍",likes:3700,p:2,saved:false,uploaded:false},
+  {id:11,title:"Nail Art & Hand Cosmetics – Step by Step Tutorial",ch:"Beauty Queen",cat:"Cosmetics",views:"1.1M",date:"5 days ago",dur:"17:35",icon:"💅",likes:4800,p:3,saved:false,uploaded:false},
+  {id:12,title:"Bridal South Indian Look with Flowers & Jewellery",ch:"Fashion Hub",cat:"Bridal",views:"5.6M",date:"1 month ago",dur:"30:00",icon:"🌸",likes:24000,p:4,saved:false,uploaded:false},
+  {id:13,title:"Sudha's Mahila Lokh – Short 1",ch:"Sudha's Mahila Lokh",cat:"New Arrivals",views:"0",date:"Just now",dur:"Short",icon:"🛍️",likes:0,p:0,isNew:true,saved:false,uploaded:true,ytId:"ncmgx-BcyFQ",mediaType:null,mediaSrc:null},
+  {id:14,title:"Sudha's Mahila Lokh – Short 2",ch:"Sudha's Mahila Lokh",cat:"New Arrivals",views:"0",date:"Just now",dur:"Short",icon:"🛍️",likes:0,p:1,isNew:true,saved:false,uploaded:true,ytId:"WfXVl0yV8p4",mediaType:null,mediaSrc:null},
+  {id:15,title:"Sudha's Mahila Lokh – Special Video",ch:"Sudha's Mahila Lokh",cat:"New Arrivals",views:"0",date:"Just now",dur:"—",icon:"💍",likes:0,p:2,isNew:true,saved:false,uploaded:true,ytId:"37klhH8JL44",mediaType:null,mediaSrc:null},
+  {id:16,title:"Sudha's Mahila Lokh – Short 4",ch:"Sudha's Mahila Lokh",cat:"New Arrivals",views:"0",date:"Just now",dur:"Short",icon:"🛍️",likes:0,p:3,isNew:true,saved:false,uploaded:true,ytId:"3Zo22NWOU7M",mediaType:null,mediaSrc:null},
+  {id:17,title:"Sudha's Mahila Lokh – Short 5",ch:"Sudha's Mahila Lokh",cat:"New Arrivals",views:"0",date:"Just now",dur:"Short",icon:"🛍️",likes:0,p:4,isNew:true,saved:false,uploaded:true,ytId:"Lb0DdTcLhw4",mediaType:null,mediaSrc:null},
+  {id:18,title:"Sudha's Mahila Lokh – Short 6",ch:"Sudha's Mahila Lokh",cat:"New Arrivals",views:"0",date:"Just now",dur:"Short",icon:"🛍️",likes:0,p:5,isNew:true,saved:false,uploaded:true,ytId:"9OBWFg0LtgY",mediaType:null,mediaSrc:null},
+  {id:19,title:"Sudha's Mahila Lokh – Short 7",ch:"Sudha's Mahila Lokh",cat:"New Arrivals",views:"0",date:"Just now",dur:"Short",icon:"🛍️",likes:0,p:6,isNew:true,saved:false,uploaded:true,ytId:"DSEaFdAibxk",mediaType:null,mediaSrc:null},
+  {id:20,title:"Bridal Gold Crown Look – Sudha's Collection",ch:"Sudha's Mahila Lokh",cat:"Bridal",views:"0",date:"Just now",dur:"—",icon:"👰",likes:0,p:0,isNew:true,saved:false,uploaded:true,mediaType:"image",mediaSrc:"https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=600&q=80",ytId:null},
+  {id:21,title:"Red & Gold Bridal Dress – Sudha's Collection",ch:"Sudha's Mahila Lokh",cat:"Bridal",views:"0",date:"Just now",dur:"—",icon:"👰",likes:0,p:1,isNew:true,saved:false,uploaded:true,mediaType:"image",mediaSrc:"https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=600&q=80",ytId:null},
+  {id:22,title:"Red Floral Dress with Hair Flower – Sudha's",ch:"Sudha's Mahila Lokh",cat:"Bridal",views:"0",date:"Just now",dur:"—",icon:"🌸",likes:0,p:2,isNew:true,saved:false,uploaded:true,mediaType:"image",mediaSrc:"https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=80",ytId:null},
+  {id:23,title:"Red & Gold Saree – Sudha's Mahila Lokh",ch:"Sudha's Mahila Lokh",cat:"Jewellery",views:"0",date:"Just now",dur:"—",icon:"💍",likes:0,p:3,isNew:true,saved:false,uploaded:true,mediaType:"image",mediaSrc:"https://images.unsplash.com/photo-1600003014755-ba31aa59c4b6?auto=format&fit=crop&w=600&q=80",ytId:null},
+];
+var shorts=[
+  {id:101,title:"Gold jhumka unboxing 💍",icon:"💍",views:"5.2M",p:0},
+  {id:102,title:"Bangle stack look 🔮",icon:"🔮",views:"3.8M",p:1},
+  {id:103,title:"5-min makeup look 💄",icon:"💄",views:"6.1M",p:2},
+  {id:104,title:"1 gram gold haul 🪙",icon:"🪙",views:"2.9M",p:3},
+  {id:105,title:"Chain layering trend ⛓️",icon:"⛓️",views:"1.8M",p:4},
+  {id:106,title:"Hair clip styles 🎀",icon:"🎀",views:"3.3M",p:5},
+  {id:107,title:"Hair colour at home 🎨",icon:"🎨",views:"2.5M",p:6},
+  {id:108,title:"Bridal jewellery haul 👰",icon:"👰",views:"4.1M",p:0},
+];
+var channels=[
+  {name:"Jewellery World",icon:"💍",subs:"220K",color:AVC[0]},
+  {name:"Glam Studio",icon:"💄",subs:"145K",color:AVC[1]},
+  {name:"Gold Palace",icon:"🪙",subs:"98K",color:AVC[2]},
+  {name:"Beauty Queen",icon:"💅",subs:"180K",color:AVC[3]},
+  {name:"Fashion Hub",icon:"🎀",subs:"310K",color:AVC[4]},
+];
+
+/* ===================== STATE ===================== */
+var videos=[];
+var curFilter='All';
+var curPlayerId=null;
+var liked=false;
+var upTimer=null;
+var pendingDeleteId=null;
+
+/* ===================== LOCALSTORAGE ===================== */
+function saveToStorage(){
+  /* save only metadata + small thumbs; skip large video blobs to stay under 5MB */
+  try{
+    var toSave=videos.map(function(v){
+      var s=Object.assign({},v);
+      /* keep image thumbs (base64 image) but skip raw video blobs to avoid quota error */
+      if(s.mediaType==='video' && s.mediaSrc && s.mediaSrc.length>500000){
+        s.mediaSrc=null; /* drop huge video blob – video won't replay after reload but entry persists */
+      }
+      return s;
+    });
+    localStorage.setItem(STORAGE_KEY,JSON.stringify(toSave));
+  }catch(e){
+    /* quota exceeded – save without media */
+    try{
+      var slim=videos.map(function(v){
+        var s=Object.assign({},v);
+        s.mediaSrc=null;
+        return s;
+      });
+      localStorage.setItem(STORAGE_KEY,JSON.stringify(slim));
+    }catch(e2){}
+  }
+}
+
+function loadFromStorage(){
+  try{
+    var raw=localStorage.getItem(STORAGE_KEY);
+    if(raw){
+      var parsed=JSON.parse(raw);
+      if(parsed && parsed.length){videos=parsed;return;}
+    }
+  }catch(e){}
+  videos=DEFAULT_VIDEOS.map(function(v){return Object.assign({},v);});
+}
+
+/* ===================== HELPERS ===================== */
+function qs(id){return document.getElementById(id);}
+function showToast(msg){
+  var t=qs('toast');t.textContent=msg;t.classList.add('show');
+  setTimeout(function(){t.classList.remove('show');},2800);
+}
+function findVideo(id){
+  for(var i=0;i<videos.length;i++){if(videos[i].id===id)return videos[i];}
+  return null;
+}
+function getYtId(url){
+  if(!url) return null;
+  var m=url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|shorts\/|embed\/))([A-Za-z0-9_-]{11})/);
+  return m?m[1]:null;
+}
+
+/* ===================== CARD BUILDER ===================== */
+function thumbHTML(v){
+  if(v.ytId){
+    return '<img src="https://img.youtube.com/vi/'+v.ytId+'/mqdefault.jpg" alt="thumb" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;"/>'
+      +'<div style="position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center">'
+      +'<div style="width:44px;height:44px;border-radius:50%;background:rgba(255,0,0,.85);display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff;box-shadow:0 2px 10px rgba(0,0,0,.4)">▶</div></div>';
+  }
+  if(v.mediaSrc && v.mediaType==='image'){
+    return '<img src="'+v.mediaSrc+'" alt="thumb" '
+      +'onerror="this.onerror=null;this.style.display=\'none\';" '
+      +'style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;"/>'
+      +'<div class="vthumb-bg" style="background:'+PAL[v.p%PAL.length].bg+';z-index:0"></div>'
+      +'<div class="vthumb-icon" style="z-index:0">'+v.icon+'</div>';
+  }
+  if(v.mediaSrc && v.mediaType==='video'){
+    return '<video src="'+v.mediaSrc+'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;" muted playsinline preload="metadata"></video>';
+  }
+  return '<div class="vthumb-bg" style="background:'+PAL[v.p%PAL.length].bg+'"></div>'
+    +'<div class="vthumb-icon">'+v.icon+'</div>';
+}
+
+function makeCard(v,delay){
+  delay=delay||0;
+  var savedClass=v.saved?'saved':'';
+  var savedIcon=v.saved?'🔖':'🔖';
+  return '<div class="vcard" style="animation-delay:'+delay+'ms" id="card-'+v.id+'">'
+    /* action buttons – always visible on mobile, hover on desktop */
+    +'<div class="card-actions">'
+    +'<button class="cact-btn cact-save '+savedClass+'" data-act="save" data-vid="'+v.id+'" title="Save">🔖</button>'
+    +(v.uploaded?'<button class="cact-btn cact-del" data-act="del" data-vid="'+v.id+'" title="Delete">🗑️</button>':'')
+    +'</div>'
+    +'<div class="vthumb" data-vid="'+v.id+'">'
+    +thumbHTML(v)
+    +'<div class="vdur">'+v.dur+'</div>'
+    +(v.live?'<div class="vlive">● LIVE</div>':'')
+    +(v.isNew?'<div class="vnew">NEW</div>':'')
+    +'</div>'
+    +'<div class="vinfo" data-vid="'+v.id+'">'
+    +'<div class="vtitle">'+v.title+'</div>'
+    +'<div class="vmeta">'
+    +'<div class="vavatar" style="background:'+AVC[v.p%AVC.length]+'">'+v.ch[0]+'</div>'
+    +'<div><div class="vch-name">'+v.ch+'</div>'
+    +'<div class="vstats"><span class="vtag">'+v.cat+'</span>'
+    +'<span style="font-size:12px;color:var(--text3);font-weight:600">'+v.views+' • '+v.date+'</span>'
+    +'</div></div></div></div></div>';
+}
+
+function makeShortCard(s){
+  var pal=PAL[s.p%PAL.length];
+  return '<div class="scard" data-vid="'+s.id+'">'
+    +'<div class="sthumb" style="background:'+pal.bg+'">'
+    +'<span>'+s.icon+'</span><div class="splay">▶</div></div>'
+    +'<div class="stitle">'+s.title+'</div></div>';
+}
+
+/* ===================== RENDER ===================== */
+function renderHome(filter){
+  filter=filter||'All';
+  qs('shortsRow').innerHTML=shorts.map(makeShortCard).join('');
+  var list=filter==='All'?videos:videos.filter(function(v){return v.cat===filter;});
+  qs('trendingGrid').innerHTML=list.slice(0,4).map(function(v,i){return makeCard(v,i*60);}).join('')
+    ||'<div style="color:var(--text2);padding:20px;font-weight:700">No videos found in this category.</div>';
+  qs('videoGrid').innerHTML=list.slice(4).map(function(v,i){return makeCard(v,i*60);}).join('');
+  qs('recTitle').textContent=filter==='All'?'💖 Recommended for You':'✨ '+filter+' Videos';
+  qs('pVidCount').textContent=videos.length;
+  bindCards();
+}
+function renderShorts(){
+  qs('shortsGrid').innerHTML=shorts.map(makeShortCard).join('');
+  bindCards();
+}
+function renderSubs(){
+  qs('subChannels').innerHTML=channels.map(function(c){
+    return '<div class="sch-card" data-ch="'+c.name+'">'
+      +'<div class="sch-av" style="background:'+c.color+'">'+c.icon+'</div>'
+      +'<div class="sch-name">'+c.name+'</div>'
+      +'<div class="sch-count">'+c.subs+' subs</div></div>';
+  }).join('');
+  qs('subGrid').innerHTML=videos.slice(0,8).map(function(v,i){return makeCard(v,i*60);}).join('');
+  document.querySelectorAll('[data-ch]').forEach(function(el){
+    el.addEventListener('click',function(){showToast('📺 '+this.dataset.ch+' opened!');});
+  });
+  bindCards();
+}
+function renderProfile(){
+  qs('profileGrid').innerHTML=videos.map(function(v,i){return makeCard(v,i*60);}).join('');
+  bindCards();
+}
+
+/* ===================== BIND CARD EVENTS ===================== */
+function bindCards(){
+  /* thumb + info → open player */
+  document.querySelectorAll('.vthumb[data-vid], .vinfo[data-vid]').forEach(function(el){
+    el.addEventListener('click',function(e){
+      /* block only if click came directly from action buttons */
+      if(e.target.closest('[data-act]')) return;
+      var vid=parseInt(this.dataset.vid||this.closest('[data-vid]').dataset.vid);
+      openPlayer(vid);
+    });
+  });
+  /* short cards */
+  document.querySelectorAll('.scard[data-vid]').forEach(function(el){
+    el.addEventListener('click',function(){openPlayer(parseInt(this.dataset.vid));});
+  });
+  /* save button on card */
+  document.querySelectorAll('[data-act="save"]').forEach(function(btn){
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      var id=parseInt(this.dataset.vid);
+      var v=findVideo(id);
+      if(!v) return;
+      v.saved=!v.saved;
+      this.classList.toggle('saved',v.saved);
+      saveToStorage();
+      showToast(v.saved?'🔖 Saved to Wishlist!':'🔖 Removed from Wishlist');
+    });
+  });
+  /* delete button on card */
+  document.querySelectorAll('[data-act="del"]').forEach(function(btn){
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      pendingDeleteId=parseInt(this.dataset.vid);
+      var v=findVideo(pendingDeleteId);
+      qs('confirmMsg').textContent='Delete "'+( v?v.title.substring(0,40):'this video')+'"?';
+      qs('confirmBox').classList.add('show');
+    });
+  });
+}
+
+/* ===================== NAVIGATION ===================== */
+var PAGES=['home','shorts','subscriptions','search','profile'];
+function showPage(name){
+  PAGES.forEach(function(p){
+    var el=qs(p+'Page');if(el) el.style.display='none';
+  });
+  var pg=qs(name+'Page');if(pg) pg.style.display='block';
+  if(name==='shorts') renderShorts();
+  if(name==='subscriptions') renderSubs();
+  if(name==='profile') renderProfile();
+  if(name==='search'){var q=qs('searchInput').value;if(q) doSearch();}
+}
+function setSidebar(id){
+  document.querySelectorAll('.sitem').forEach(function(i){i.classList.remove('active');});
+  if(id){var el=qs(id);if(el) el.classList.add('active');}
+}
+function setBnActive(id){
+  document.querySelectorAll('.bni').forEach(function(i){i.classList.remove('active');});
+  if(id){var el=qs(id);if(el) el.classList.add('active');}
+}
+
+qs('logoBtn').addEventListener('click',function(){showPage('home');setSidebar('sb-home');setBnActive('bn-home');});
+qs('sb-home').addEventListener('click',function(){showPage('home');setSidebar('sb-home');});
+qs('sb-shorts').addEventListener('click',function(){showPage('shorts');setSidebar('sb-shorts');});
+qs('sb-subs').addEventListener('click',function(){showPage('subscriptions');setSidebar('sb-subs');});
+qs('sb-profile').addEventListener('click',function(){showPage('profile');setSidebar('sb-profile');});
+qs('sb-history').addEventListener('click',function(){showToast('🕐 Watch history');});
+qs('sb-liked').addEventListener('click',function(){
+  /* show saved videos */
+  showPage('home');setSidebar('sb-liked');
+  var saved=videos.filter(function(v){return v.saved;});
+  qs('trendingGrid').innerHTML='';
+  qs('videoGrid').innerHTML=saved.length
+    ?saved.map(function(v,i){return makeCard(v,i*60);}).join('')
+    :'<div style="color:var(--text2);padding:24px;font-weight:700;text-align:center">💔 No saved videos yet.<br>Tap 🔖 on any video to save it.</div>';
+  qs('recTitle').textContent='🔖 Saved / Liked Videos';
+  bindCards();
+});
+qs('profileBtn').addEventListener('click',function(){showPage('profile');});
+qs('notifBtn').addEventListener('click',function(){showToast('🔔 5 new arrivals added!');});
+qs('heroShopBtn').addEventListener('click',function(){showToast('💍 Explore our collection!');});
+qs('subBtn').addEventListener('click',function(){showToast('💖 Subscribed!');});
+
+/* sidebar category items */
+document.querySelectorAll('.sb-cat').forEach(function(el){
+  el.addEventListener('click',function(){
+    var cat=this.dataset.cat;
+    showPage('home');setSidebar(null);this.classList.add('active');
+    filterChips(cat);renderHome(cat);curFilter=cat;
+  });
+});
+
+/* bottom nav */
+qs('bn-home').addEventListener('click',function(){showPage('home');setBnActive('bn-home');setSidebar('sb-home');});
+qs('bn-upload').addEventListener('click',function(){openUpload();});
+qs('bn-profile').addEventListener('click',function(){showPage('profile');setBnActive('bn-profile');});
+qs('uploadHeaderBtn').addEventListener('click',function(){openUpload();});
+
+/* ===================== CHIPS ===================== */
+function filterChips(cat){
+  document.querySelectorAll('#chipsRow .chip').forEach(function(c){
+    c.classList.toggle('active',c.dataset.cat===cat);
+  });
+}
+document.querySelectorAll('#chipsRow .chip').forEach(function(el){
+  el.addEventListener('click',function(){
+    var cat=this.dataset.cat;filterChips(cat);curFilter=cat;renderHome(cat);
+  });
+});
+
+/* ===================== SEARCH ===================== */
+function doSearch(){
+  var q=qs('searchInput').value.trim();
+  if(!q) return;
+  showPage('search');
+  var lq=q.toLowerCase();
+  var res=videos.filter(function(v){
+    return v.title.toLowerCase().indexOf(lq)>-1
+      ||v.ch.toLowerCase().indexOf(lq)>-1
+      ||v.cat.toLowerCase().indexOf(lq)>-1;
+  });
+  qs('searchLabel').innerHTML='🔍 Found <strong>'+res.length+'</strong> result'+(res.length!==1?'s':'')+' for "<strong>'+q+'</strong>"';
+  if(res.length){
+    qs('searchResults').innerHTML=res.map(function(v){
+      var pal=PAL[v.p%PAL.length];
+      var tHTML='';
+      if(v.mediaSrc && v.mediaType==='image') tHTML='<img src="'+v.mediaSrc+'" alt=""/>';
+      else if(v.mediaSrc && v.mediaType==='video') tHTML='<video src="'+v.mediaSrc+'" muted preload="metadata"></video>';
+      else tHTML='<div style="width:100%;height:100%;background:'+pal.bg+';display:flex;align-items:center;justify-content:center;font-size:28px">'+v.icon+'</div>';
+      return '<div class="srcard" data-vid="'+v.id+'">'
+        +'<div class="srthumb">'+tHTML+'</div>'
+        +'<div class="srinfo">'
+        +'<div class="srtitle">'+v.title+'</div>'
+        +'<div class="srmeta">'+v.ch+' • '+v.views+' views • '+v.date+' • '+v.dur+'<br><span class="srcat">'+v.cat+'</span></div>'
+        +'</div></div>';
+    }).join('');
+    document.querySelectorAll('.srcard[data-vid]').forEach(function(el){
+      el.addEventListener('click',function(){openPlayer(parseInt(this.dataset.vid));});
+    });
+  } else {
+    qs('searchResults').innerHTML='<div style="text-align:center;padding:60px;color:var(--text3)">'
+      +'<div style="font-size:48px;margin-bottom:12px">🔍</div>'
+      +'<div style="font-size:16px;font-weight:800">No results for "'+q+'"</div>'
+      +'<div style="font-size:13px;margin-top:6px">Try: jewellery, bangles, cosmetics, bridal…</div></div>';
+  }
+}
+qs('searchBtn').addEventListener('click',doSearch);
+qs('searchInput').addEventListener('keydown',function(e){if(e.key==='Enter') doSearch();});
+qs('searchInput').addEventListener('input',function(){if(this.value.length>2) doSearch();});
+
+/* ===================== PLAYER ===================== */
+function openPlayer(id){
+  var v=findVideo(id);
+  if(!v){/* check shorts */
+    for(var i=0;i<shorts.length;i++){if(shorts[i].id===id){v=shorts[i];break;}}
+  }
+  if(!v) return;
+  curPlayerId=id;
+  liked=false;
+  var curLikes=v.likes||Math.floor(Math.random()*5000+800);
+
+  /* Build player screen content */
+  var screen=qs('playerScreen');
+  /* remove old media */
+  var oldMedia=screen.querySelector('video,img');
+  if(oldMedia) oldMedia.remove();
+  var oldEmoji=screen.querySelector('.p-emoji');
+  if(oldEmoji) oldEmoji.remove();
+
+  /* remove old iframe if any */
+  var oldFrame=screen.querySelector('iframe');
+  if(oldFrame) oldFrame.remove();
+
+  if(v.ytId){
+    /* Check if running on https or local file */
+    var isHttps=location.protocol==='https:';
+    screen.style.background='#000';
+
+    if(isHttps){
+      /* GitHub Pages లో — iframe embed పని చేస్తుంది */
+      var iframe=document.createElement('iframe');
+      iframe.src='https://www.youtube.com/embed/'+v.ytId+'?autoplay=1&rel=0&playsinline=1';
+      iframe.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+      iframe.setAttribute('allowfullscreen','');
+      iframe.setAttribute('frameborder','0');
+      iframe.style.cssText='position:absolute;inset:0;width:100%;height:100%;z-index:2;border:none;display:block;';
+      screen.insertBefore(iframe,screen.firstChild);
+      qs('pPlayBtn').classList.add('hidden');
+    } else {
+      /* Local file — YouTube app లో open చేయండి */
+      var ytUrl='https://www.youtube.com/watch?v='+v.ytId;
+      var thumb=document.createElement('img');
+      thumb.src='https://img.youtube.com/vi/'+v.ytId+'/mqdefault.jpg';
+      thumb.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;';
+      screen.insertBefore(thumb,screen.firstChild);
+      /* Open YouTube button */
+      var ytBtn=document.createElement('a');
+      ytBtn.href=ytUrl;
+      ytBtn.target='_blank';
+      ytBtn.style.cssText='position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-decoration:none;';
+      ytBtn.innerHTML='<div style="width:64px;height:64px;border-radius:50%;background:rgba(255,0,0,.92);display:flex;align-items:center;justify-content:center;font-size:26px;color:#fff;box-shadow:0 4px 18px rgba(0,0,0,.5);">▶</div>'
+        +'<div style="background:rgba(0,0,0,.75);color:#fff;font-size:13px;font-weight:800;padding:7px 18px;border-radius:22px;font-family:Nunito,sans-serif;">▶ YouTube లో చూడండి</div>';
+      screen.insertBefore(ytBtn,screen.firstChild);
+      qs('pPlayBtn').classList.add('hidden');
+    }
+  } else if(v.mediaSrc && v.mediaType==='video'){
+    var vid=document.createElement('video');
+    vid.src=v.mediaSrc;
+    vid.controls=true;
+    vid.autoplay=true;
+    vid.playsInline=true;
+    vid.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:contain;z-index:1;background:#000;';
+    screen.insertBefore(vid,screen.firstChild);
+    qs('pPlayBtn').classList.add('hidden');
+  } else if(v.mediaSrc && v.mediaType==='image'){
+    var img=document.createElement('img');
+    img.src=v.mediaSrc;
+    img.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:contain;z-index:1;background:#111;';
+    img.onerror=function(){
+      this.remove();
+      screen.style.background=PAL[v.p%PAL.length].bg;
+      var fb=document.createElement('div');
+      fb.className='p-emoji';fb.textContent=v.icon||'🖼️';
+      screen.insertBefore(fb,screen.firstChild);
+    };
+    screen.insertBefore(img,screen.firstChild);
+    qs('pPlayBtn').classList.add('hidden');
+    screen.style.background='#111';
+  } else {
+    screen.style.background=PAL[v.p%PAL.length].bg;
+    var emoji=document.createElement('div');
+    emoji.className='p-emoji'; emoji.textContent=v.icon||'🎬';
+    screen.insertBefore(emoji,screen.firstChild);
+    qs('pPlayBtn').classList.remove('hidden');
+    qs('pPlayBtn').textContent='▶';
+  }
+
+  qs('pTitle').textContent=v.title||'Fashion Video';
+  qs('pViews').textContent=(v.views||'0')+' views';
+  qs('pDate').textContent=v.date||'Recently';
+  qs('pCh').textContent='📺 '+(v.ch||"Sudha's Mahila Lokh");
+  qs('pCat').textContent=v.cat?'🏷️ '+v.cat:'';
+  qs('likeNum').textContent=curLikes.toLocaleString();
+  qs('likeBtn').classList.remove('liked');
+
+  /* save button state */
+  if(v.saved){ qs('pSaveBtn').classList.add('saved-p'); qs('pSaveBtn').textContent='🔖 Saved'; }
+  else { qs('pSaveBtn').classList.remove('saved-p'); qs('pSaveBtn').textContent='🔖 Save'; }
+
+  /* delete button only for uploaded videos */
+  qs('pDelBtn').style.display=v.uploaded?'flex':'none';
+
+  qs('playerOverlay').classList.add('open');
+}
+
+qs('playerOverlay').addEventListener('click',function(e){if(e.target===this) closePlayer();});
+qs('playerCloseBtn').addEventListener('click',closePlayer);
+function closePlayer(){
+  /* pause any playing video */
+  var vid=qs('playerScreen').querySelector('video');
+  if(vid){vid.pause();vid.src='';}
+  /* stop YouTube iframe */
+  var iframe=qs('playerScreen').querySelector('iframe');
+  if(iframe){iframe.src='';iframe.remove();}
+  qs('playerOverlay').classList.remove('open');
+  curPlayerId=null;
+}
+
+qs('pPlayBtn').addEventListener('click',function(){
+  showToast('▶ Now Playing…');
+  this.classList.add('hidden');
+});
+qs('likeBtn').addEventListener('click',function(e){
+  e.stopPropagation();
+  liked=!liked;
+  var v=findVideo(curPlayerId);
+  if(v){v.likes=(v.likes||0)+(liked?1:-1);saveToStorage();}
+  var num=qs('likeNum');
+  num.textContent=(parseInt(num.textContent.replace(/,/g,''))+(liked?1:-1)).toLocaleString();
+  this.classList.toggle('liked',liked);
+  showToast(liked?'❤️ Liked!':'Like removed');
+});
+qs('pSaveBtn').addEventListener('click',function(e){
+  e.stopPropagation();
+  var v=findVideo(curPlayerId);
+  if(!v) return;
+  v.saved=!v.saved;
+  saveToStorage();
+  if(v.saved){this.classList.add('saved-p');this.textContent='🔖 Saved';}
+  else{this.classList.remove('saved-p');this.textContent='🔖 Save';}
+  /* update card icon if visible */
+  var cardBtn=document.querySelector('[data-act="save"][data-vid="'+curPlayerId+'"]');
+  if(cardBtn) cardBtn.classList.toggle('saved',v.saved);
+  showToast(v.saved?'🔖 Saved to Wishlist!':'🔖 Removed from Wishlist');
+});
+qs('pDelBtn').addEventListener('click',function(e){
+  e.stopPropagation();
+  if(!curPlayerId) return;
+  pendingDeleteId=curPlayerId;
+  var v=findVideo(curPlayerId);
+  qs('confirmMsg').textContent='Delete "'+(v?v.title.substring(0,40)+'…':'this video')+'"?';
+  qs('confirmBox').classList.add('show');
+});
+qs('shareBtn').addEventListener('click',function(e){e.stopPropagation();showToast('🔗 Link copied!');});
+qs('waBtn').addEventListener('click',function(e){e.stopPropagation();window.open('https://wa.me/919441412413','_blank');});
+qs('dlBtn').addEventListener('click',function(e){
+  e.stopPropagation();
+  var v=findVideo(curPlayerId);
+  if(v && v.mediaSrc){
+    var a=document.createElement('a');
+    a.href=v.mediaSrc;
+    a.download=v.title+(v.mediaType==='video'?'.mp4':'.jpg');
+    a.click();
+    showToast('⬇️ Download started!');
+  } else {
+    showToast('⬇️ No file to download for demo videos');
+  }
+});
+
+/* ===================== CONFIRM DELETE ===================== */
+qs('confirmNo').addEventListener('click',function(){
+  qs('confirmBox').classList.remove('show');
+  pendingDeleteId=null;
+});
+qs('confirmYes').addEventListener('click',function(){
+  qs('confirmBox').classList.remove('show');
+  if(!pendingDeleteId) return;
+  /* remove from array */
+  videos=videos.filter(function(v){return v.id!==pendingDeleteId;});
+  saveToStorage();
+  pendingDeleteId=null;
+  closePlayer();
+  renderHome(curFilter);
+  showToast('🗑️ Video deleted successfully!');
+});
+
+/* ===================== UPLOAD ===================== */
+function openUpload(){resetUpload();qs('uploadOverlay').classList.add('open');}
+function closeUpload(){
+  qs('uploadOverlay').classList.remove('open');
+  if(upTimer){clearInterval(upTimer);upTimer=null;}
+  /* Reset YouTube preview */
+  var yi=qs('ytValidIcon');if(yi)yi.style.display='none';
+  var yp=qs('ytPreviewBox');if(yp)yp.style.display='none';
+  var ys=qs('ytFetchStatus');if(ys)ys.style.display='none';
+  var yt=qs('ytThumbImg');if(yt)yt.src='';
+  var yf=qs('ytFetchedTitle');if(yf)yf.textContent='';
+}
+function resetUpload(){
+  qs('upTitle').value='';qs('upDesc').value='';qs('upCat').value='';qs('upYtLink').value='';
+  try{qs('videoFile').value='';}catch(e){}
+  qs('fnameDisplay').textContent='';
+  qs('upProg').classList.remove('show');
+  qs('progFill').style.width='0%';
+  qs('progLbl').textContent='Uploading… 0%';
+  qs('upSubmitBtn').disabled=false;
+  qs('upSubmitBtn').textContent='📤 Publish';
+  /* Reset YouTube fields safely */
+  var yi=qs('ytValidIcon');if(yi)yi.style.display='none';
+  var yp=qs('ytPreviewBox');if(yp)yp.style.display='none';
+  var ys=qs('ytFetchStatus');if(ys)ys.style.display='none';
+  var yt=qs('ytThumbImg');if(yt)yt.src='';
+  var yf=qs('ytFetchedTitle');if(yf)yf.textContent='';
+}
+qs('uploadOverlay').addEventListener('click',function(e){if(e.target===this) closeUpload();});
+qs('upCloseX').addEventListener('click',closeUpload);
+qs('upCancelBtn').addEventListener('click',closeUpload);
+
+/* ===================== YOUTUBE PREVIEW + VALIDATION + PASTE + AUTO-FETCH ===================== */
+var ytDebounce=null;
+
+function updateYtPreview(url){
+  var ytId=getYtId(url);
+  var icon=qs('ytValidIcon');
+  var preview=qs('ytPreviewBox');
+  var thumb=qs('ytThumbImg');
+  var fetchedTitle=qs('ytFetchedTitle');
+  var status=qs('ytFetchStatus');
+
+  if(!url||url.trim()===''){
+    icon.style.display='none';
+    preview.style.display='none';
+    status.style.display='none';
+    return;
+  }
+  if(!ytId){
+    icon.textContent='❌';icon.style.display='inline';
+    preview.style.display='none';
+    status.textContent='⚠️ Valid YouTube link కాదు. Check చేయండి.';
+    status.style.color='var(--red)';status.style.display='block';
+    return;
+  }
+  /* Valid ✅ */
+  icon.textContent='✅';icon.style.display='inline';
+  status.style.display='none';
+  thumb.src='https://img.youtube.com/vi/'+ytId+'/mqdefault.jpg';
+  fetchedTitle.textContent='';
+  preview.style.display='block';
+  /* Auto-fetch title */
+  clearTimeout(ytDebounce);
+  ytDebounce=setTimeout(function(){
+    fetch('https://noembed.com/embed?url=https://www.youtube.com/watch?v='+ytId)
+      .then(function(r){return r.json();})
+      .then(function(data){
+        if(data&&data.title){
+          fetchedTitle.textContent='🎬 '+data.title;
+          if(!qs('upTitle').value.trim()) qs('upTitle').value=data.title;
+          status.textContent='✅ Title auto-fetch అయింది!';
+          status.style.color='var(--teal)';status.style.display='block';
+          setTimeout(function(){status.style.display='none';},2500);
+        }
+      }).catch(function(){});
+  },600);
+}
+
+qs('upYtLink').addEventListener('input',function(){updateYtPreview(this.value.trim());});
+
+qs('ytPasteBtn').addEventListener('click',function(){
+  if(navigator.clipboard&&navigator.clipboard.readText){
+    navigator.clipboard.readText().then(function(text){
+      qs('upYtLink').value=text.trim();
+      updateYtPreview(text.trim());
+      showToast('📋 Clipboard నుండి paste చేయబడింది!');
+    }).catch(function(){showToast('⚠️ Clipboard access లేదు. Manually paste చేయండి.');});
+  } else {
+    showToast('⚠️ ఈ browser clipboard support చేయడం లేదు.');
+  }
+});
+
+/* YouTube preview reset handled inside closeUpload */
+
+qs('videoFile').addEventListener('change',function(){
+  var f=this.files[0];
+  qs('fnameDisplay').textContent=f?'✅ Selected: '+f.name:'';
+});
+
+qs('upSubmitBtn').addEventListener('click',function(){
+  var title=qs('upTitle').value.trim();
+  var cat=qs('upCat').value;
+  var ytRaw=qs('upYtLink').value.trim();
+  var ytId=getYtId(ytRaw);
+  if(!title){showToast('⚠️ Please enter a title!');qs('upTitle').focus();return;}
+  if(!cat){showToast('⚠️ Please select a category!');qs('upCat').focus();return;}
+
+  var file=qs('videoFile').files[0];
+
+  /* if YouTube link given but invalid */
+  if(ytRaw && !ytId){showToast('⚠️ Invalid YouTube link! Check చేయండి.');qs('upYtLink').focus();return;}
+
+  var btn=this;
+  btn.disabled=true;btn.textContent='Processing…';
+  qs('upProg').classList.add('show');
+
+  var icon=CAT_ICONS[cat]||'🎬';
+  var pIdx=Math.floor(Math.random()*PAL.length);
+
+  function finishUpload(mediaSrc,mediaType){
+    var newId=Date.now();
+    var newVideo={
+      id:newId,title:title,ch:"Sudha's Mahila Lokh",cat:cat,
+      views:'0',date:'Just now',dur:mediaType==='video'?'—':(ytId?'YT':'📷'),
+      icon:icon,likes:0,p:pIdx,isNew:true,saved:false,uploaded:true,
+      mediaSrc:mediaSrc||null,mediaType:mediaType||null,
+      ytId:ytId||null
+    };
+    videos.unshift(newVideo);
+    saveToStorage(); /* ✅ SAVE TO LOCALSTORAGE */
+
+    var pct=0;
+    upTimer=setInterval(function(){
+      pct+=Math.floor(Math.random()*18)+8;
+      if(pct>=100){
+        pct=100;clearInterval(upTimer);upTimer=null;
+        qs('progFill').style.width='100%';
+        qs('progLbl').textContent='✅ Saved & Published!';
+        setTimeout(function(){
+          closeUpload();
+          showToast('🎉 "'+title+'" published & saved!');
+          showPage('home');setSidebar('sb-home');setBnActive('bn-home');
+          filterChips('All');curFilter='All';
+          renderHome('All');
+        },600);
+      } else {
+        qs('progFill').style.width=pct+'%';
+        qs('progLbl').textContent='Uploading… '+pct+'%';
+      }
+    },160);
+  }
+
+  /* YouTube link → no file needed */
+  if(ytId){
+    finishUpload(null,null);
+  } else if(file){
+    var reader=new FileReader();
+    reader.onload=function(e){
+      var mtype=file.type.indexOf('video')>-1?'video':'image';
+      finishUpload(e.target.result,mtype);
+    };
+    reader.onerror=function(){finishUpload(null,null);};
+    reader.readAsDataURL(file);
+  } else {
+    finishUpload(null,null);
+  }
+});
+
+/* ===================== PROFILE TABS ===================== */
+document.querySelectorAll('.tab').forEach(function(el){
+  el.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active');});
+    this.classList.add('active');
+    var name=this.dataset.tab;
+    if(name==='About'){
+      qs('profileGrid').innerHTML='<div style="grid-column:1/-1;background:var(--pink-light);border-radius:18px;padding:24px;border:2px solid var(--border)">'
+        +'<div style="font-family:\'Playfair Display\',serif;font-size:20px;font-weight:900;color:var(--pink);margin-bottom:12px">About Sudha\'s Mahila Lokh 💍</div>'
+        +'<div style="font-size:14px;font-weight:600;color:var(--text2);line-height:2.2">'
+        +'📍 Shop No.11, NTR Complex, Lakshmipuram, Guntur – 522007, AP<br>'
+        +'📞 <a href="tel:08632222855" style="color:var(--pink);font-weight:800">0863-2222855</a><br>'
+        +'💬 <a href="https://wa.me/919441412413" target="_blank" style="color:var(--pink);font-weight:800">WhatsApp: 9441412413</a><br>'
+        +'💍 Jewellery | 🔮 Bangles | 🪙 One Gram Gold | ⛓️ Chains<br>'
+        +'💄 Cosmetics | 🧴 Make-up Box | 🎀 Hair Clips | 🎨 Hair Colours | 👰 Bridal<br>'
+        +'🕘 Open: Mon–Sat, 10AM – 8PM'
+        +'</div></div>';
+      return;
+    }
+    if(name==='Playlists'){
+      qs('profileGrid').innerHTML='<div style="grid-column:1/-1;background:var(--gold-light);border-radius:18px;padding:20px;border:2px solid var(--gold2);text-align:center;color:var(--text2);font-weight:700;font-size:14px">'
+        +'📋 Playlists: Bridal • Gold Jewellery • Hair Colours • Cosmetics • Bangles • Make-up Box</div>';
+      return;
+    }
+    var vids=name==='Videos'?videos:videos.filter(function(_,i){return i%2===0;}).slice(0,6);
+    qs('profileGrid').innerHTML=vids.map(function(v,i){return makeCard(v,i*60);}).join('');
+    bindCards();
+  });
+});
+
+/* ===================== INIT ===================== */
+loadFromStorage();   /* load saved videos from localStorage */
+showPage('home');
+renderHome();
+
+})();
+</script>
+</body>
+</html>
